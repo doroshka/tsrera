@@ -19,7 +19,7 @@ st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap
 hide_img_fs = '''
 <style>
 button[title="View fullscreen"]{visibility: hidden;}
-#GithubIcon{visibility: hidden;}    
+header > div.stActionButton button[kind="header"]{visibility: hidden;}
 </style>
 '''
 st.markdown(hide_img_fs, unsafe_allow_html=True)
