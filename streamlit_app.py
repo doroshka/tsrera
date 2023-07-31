@@ -18,8 +18,8 @@ def open_page(url):
 st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" crossorigin="anonymous">', unsafe_allow_html=True)
 hide_img_fs = '''
 <style>
-button[title="View fullscreen"]{
-    visibility: hidden;}
+button[title="View fullscreen"]{visibility: hidden;}
+#GithubIcon{visibility: hidden;}    
 </style>
 '''
 st.markdown(hide_img_fs, unsafe_allow_html=True)
