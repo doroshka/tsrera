@@ -1,7 +1,7 @@
 import streamlit as st
 import reqapi as ra
 import pandas as pd
-
+import datetime
 
 def check_password():
     """Returns `True` if the user had the correct password."""
@@ -61,8 +61,8 @@ if check_password():
                 with st.expander("Results", expanded=True):
                     st.subheader(f"Project Number: :blue[{st.session_state['id']}]")
                     c1, c2 = st.columns([2, 3])
-                    c1.markdown(f"[<i class='bi bi-download'></i> Download Excel]({res['response']['url']})   ", unsafe_allow_html=True)
-                    c2.markdown(f"[<i class='bi bi-file-excel'></i> Preview Excel]({res['response']['preview']})", unsafe_allow_html=True)
+                    c1.markdown(f"<i class='bi bi-download'></i> [Download Excel]({res['response']['url']})   ", unsafe_allow_html=True)
+                    c2.markdown(f"<i class='bi bi-file-excel'></i> [Preview Excel]({res['response']['preview']})", unsafe_allow_html=True)
                     c1, c2 = st.columns([1, 3])
                     c1.markdown("**Promoter**")
                     c1.markdown("**Last Modified Date**")
@@ -86,3 +86,8 @@ if check_password():
         else:
             error_n1.markdown(":red[Project Number could not be empty]")
 
+    with st.expander("All Projects Excel", expanded=False):
+        mon = datetime.date.today() - datetime.timedelta(datetime.date.today().weekday())
+        st.markdown(f"<i class='bi bi-download'></i> [Download AllProjects.xlsx]({'https://drive.google.com/uc?id=17gfF0RxHXkcWtXvFCSskwmWV3FZIEk6J&export=download'})   ", unsafe_allow_html=True)
+        st.markdown(f"<i class='bi bi-file-excel'></i> [Open AllProjects.xlsx]({'https://docs.google.com/spreadsheets/d/17gfF0RxHXkcWtXvFCSskwmWV3FZIEk6J/edit'})", unsafe_allow_html=True)
+        st.write(f"Updated: {mon:%d/%m/%Y}")
